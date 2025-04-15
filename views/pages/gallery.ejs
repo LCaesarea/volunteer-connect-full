@@ -1,0 +1,41 @@
+<%- include('../partials/header') %>
+
+<div class="container mt-5">
+  <h1>Gallery</h1>
+  <div id="gallery" class="row">
+    <!-- Images will be dynamically loaded here -->
+  </div>
+</div>
+
+<%- include('../partials/footer') %>
+
+<script>
+  // JavaScript to dynamically load gallery images
+  const images = [
+    { src: "path/to/image1.jpg", alt: "Image 1", title: "Event 1" },
+    { src: "path/to/image2.jpg", alt: "Image 2", title: "Event 2" },
+    // Add more images as needed
+  ];
+
+  const galleryContainer = document.getElementById("gallery");
+
+  function displayImages() {
+    galleryContainer.innerHTML = "";
+    images.forEach(image => {
+      const imageCard = `
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <img src="${image.src}" alt="${image.alt}" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">${image.title}</h5>
+            </div>
+          </div>
+        </div>
+      `;
+      galleryContainer.innerHTML += imageCard;
+    });
+  }
+
+  // Initial display of gallery images
+  displayImages();
+</script>

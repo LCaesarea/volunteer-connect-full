@@ -1,0 +1,16 @@
+<%- include('../partials/header') %>
+
+<div class="container mt-5">
+    <h2>Upcoming Events</h2>
+    <div id="events-list" class="event-list">
+        <!-- Events will load here -->
+    </div>
+</div>
+
+<%- include('../partials/footer') %>
+
+<script type="module">
+    // Use default import since that's what your module exports
+    import loadEvents from '/scripts/components/events.js';
+    document.addEventListener('DOMContentLoaded', loadEvents);
+</script>

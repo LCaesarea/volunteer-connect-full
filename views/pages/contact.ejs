@@ -1,0 +1,42 @@
+<%- include('../partials/header') %>
+
+<div class="container mt-5">
+  <h1>Contact Us</h1>
+  <form id="contactForm">
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input type="text" class="form-control" id="name" required>
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" id="email" required>
+    </div>
+    <div class="mb-3">
+      <label for="subject" class="form-label">Subject</label>
+      <input type="text" class="form-control" id="subject" required>
+    </div>
+    <div class="mb-3">
+      <label for="message" class="form-label">Message</label>
+      <textarea class="form-control" id="message" rows="5" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+<!-- Search Results Container -->
+<div class="container mt-4" id="searchResults">
+  <!-- Search results will be dynamically inserted here -->
+</div>
+
+<%- include('../partials/footer') %>
+
+<script>
+  // Contact Form Submission
+  document.getElementById("contactForm").addEventListener("submit", function (event) {
+    event.preventDefault();
+    alert("Thank you for contacting us! We will get back to you soon.");
+    setTimeout(() => {
+      window.router.navigate("/"); // SPA-style redirect
+    }, 5000);
+  });
+</script>

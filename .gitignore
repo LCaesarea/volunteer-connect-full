@@ -1,0 +1,25 @@
+# Node.js
+node_modules/
+
+# Environment files
+.env
+
+# Logs
+*.log
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# IDE files (for WebStorm)
+.idea/
+
+# npm package-lock files (optional)
+package-lock.json
+
+# Build and temporary directories
+dist/
+build/
+
+# Debug files
+.vscode/

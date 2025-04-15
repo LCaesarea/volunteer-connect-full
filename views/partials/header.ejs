@@ -1,0 +1,42 @@
+<!-- views/partials/header.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer Connect</title>
+    <link href="/content/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/content/global.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/" data-path="/">Volunteer Connect</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <!-- Common links -->
+            <li class="nav-item"><a class="nav-link" href="/" data-path="/">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="/events" data-path="/events">Events</a></li>
+            <li class="nav-item"><a class="nav-link" href="/privacy" data-path="/privacy">Privacy Policy</a></li>
+            <li class="nav-item"><a class="nav-link" href="/terms" data-path="/terms">Terms of Service</a></li>
+            <li class="nav-item"><a class="nav-link" href="/donate" data-path="/donate">Donate</a></li>
+            <li class="nav-item"><a class="nav-link" href="/gallery" data-path="/gallery">Gallery</a></li>
+
+            <!-- Auth-only links -->
+            <li class="nav-item auth-only"><a class="nav-link" href="/statistics" data-path="/statistics">Statistics</a></li>
+            <li class="nav-item auth-only"><a class="nav-link" href="/event-planning" data-path="/event-planning">Event Planning</a></li>
+            <li class="nav-item auth-only"><a class="nav-link" href="/profile" data-path="/profile">Profile</a></li>
+            <li class="nav-item auth-only"><a class="nav-link" href="#" id="logout-link">Logout</a></li>
+
+            <!-- Guest-only links -->
+            <li class="nav-item guest-only"><a class="nav-link" href="/login" id="login-link">Login</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Load header logic -->
+<script src="/dist/src/components/header.js" defer></script>
+

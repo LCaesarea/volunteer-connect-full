@@ -1,0 +1,22 @@
+<%- include('../partials/header') %>
+
+<div class="container mt-5">
+    <h2>User Profile</h2>
+
+    <% if (user) { %>
+        <div class="profile-info">
+            <p><strong>Username:</strong> <%= user.username %></p>
+            <!-- You can add more user details here as necessary -->
+            <a href="/users/<%= user._id %>/edit" class="btn btn-primary">Edit Profile</a>
+            <form action="/users/<%= user._id %>" method="POST" class="mt-2">
+                <input type="hidden" name="_method" value="DELETE">
+                <button type="submit" class="btn btn-danger">Delete Profile</button>
+            </form>
+        </div>
+    <% } else { %>
+        <p>No user data found.</p>
+    <% } %>
+
+</div>
+
+<%- include('../partials/footer') %>

@@ -1,0 +1,37 @@
+<%- include('../partials/header') %>
+
+<div class="container mt-5">
+    <h2>Event Statistics</h2>
+    <canvas id="statsCanvas" width="400" height="200"></canvas>
+</div>
+
+<%- include('../partials/footer') %>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Sample data for the chart (you can replace this with real data)
+    const data = {
+        labels: ['Event 1', 'Event 2', 'Event 3', 'Event 4'],
+        datasets: [{
+            label: 'Participants',
+            data: [50, 75, 30, 100], // Replace with actual event data
+            borderColor: 'rgb(75, 192, 192)',
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            fill: true,
+        }]
+    };
+
+    const ctx = document.getElementById('statsCanvas').getContext('2d');
+    const chart = new Chart(ctx, {
+        type: 'line',  // You can change this to 'bar', 'pie', etc.
+        data: data,
+        options: {
+            responsive: true,
+            scales: {
+                x: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>

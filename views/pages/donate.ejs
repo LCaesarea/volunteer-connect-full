@@ -1,0 +1,36 @@
+<%- include('../partials/header') %>
+
+<div class="container mt-5">
+  <h1>Donate to Volunteer Connect</h1>
+  <p>Your support helps us make a difference in the community. Thank you for your generosity!</p>
+  <form id="donateForm">
+    <div class="mb-3">
+      <label for="amount" class="form-label">Donation Amount</label>
+      <input type="number" class="form-control" id="amount" required>
+    </div>
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input type="text" class="form-control" id="name" required>
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" id="email" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Donate Now</button>
+  </form>
+</div>
+
+<!-- Search Results Container -->
+<div class="container mt-4" id="searchResults">
+  <!-- Search results will be dynamically inserted here -->
+</div>
+
+<%- include('../partials/footer') %>
+
+<script>
+  // Donate Form Submission
+  document.getElementById("donateForm").addEventListener("submit", function (event) {
+    event.preventDefault();
+    alert("Thank you for your donation!");
+  });
+</script>

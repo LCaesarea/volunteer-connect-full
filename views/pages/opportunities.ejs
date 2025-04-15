@@ -1,0 +1,79 @@
+<%- include('../partials/header') %>
+
+<div class="container mt-5">
+  <h1>Volunteer Opportunities</h1>
+  <div id="opportunity-container" class="mt-4">
+    <!-- Opportunities will be dynamically inserted here by JavaScript -->
+  </div>
+</div>
+
+<!-- Sign Up Modal -->
+<div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="signupModalLabel">Sign Up</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="signupForm">
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" required>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" required>
+          </div>
+          <div class="mb-3">
+            <label for="role" class="form-label">Preferred Role</label>
+            <input type="text" class="form-control" id="role" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>
+
+<script>
+  // JavaScript to dynamically generate opportunities
+  const opportunities = [
+    {
+      title: "Community Cleanup",
+      description: "Help clean up local parks and streets.",
+      date: "2023-11-15",
+      time: "10:00 AM"
+    },
+    {
+      title: "Food Drive",
+      description: "Assist in collecting and distributing food to those in need.",
+      date: "2023-11-20",
+      time: "9:00 AM"
+    }
+  ];
+
+  const opportunityContainer = document.getElementById("opportunity-container");
+
+  opportunities.forEach(opp => {
+    const card = `
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">${opp.title}</h5>
+          <p class="card-text">${opp.description}</p>
+          <p class="card-text"><small class="text-muted">${opp.date} at ${opp.time}</small></p>
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#signupModal">Sign Up</button>
+        </div>
+      </div>
+    `;
+    opportunityContainer.innerHTML += card;
+  });
+
+  // Form submission handler
+  document.getElementById("signupForm").addEventListener("submit", function (event) {
+    event.preventDefault();
+    alert("Thank you for signing up!");
+  });
+</script>

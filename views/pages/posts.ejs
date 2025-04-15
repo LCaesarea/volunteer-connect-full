@@ -1,0 +1,32 @@
+<%- include('../partials/header') %>
+
+<div class="container mt-5">
+    <h2>All Posts</h2>
+
+    <a href="/posts/create" class="btn btn-primary mb-3">Create New Post</a>
+
+    <div id="posts-list" class="post-list">
+        <% if (posts.length > 0) { %>
+            <ul>
+                <% posts.forEach(post => { %>
+                    <li class="post-item">
+                        <h4><%= post.title %></h4>
+                        <p><%= post.content %></p>
+                        <!-- Edit Post Link -->
+                        <a href="/posts/<%= post._id %>/edit" class="btn btn-secondary">Edit</a>
+
+                        <!-- Delete Post Form -->
+                        <form action="/posts/<%= post._id %>" method="POST" class="mt-2" style="display:inline;">
+                            <input type="hidden" name="_method" value="DELETE"> <!-- To use DELETE method -->
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </li>
+                <% }) %>
+            </ul>
+        <% } else { %>
+            <p>No posts available.</p>
+        <% } %>
+    </div>
+</div>
+
+<%- include('../partials/footer') %>
