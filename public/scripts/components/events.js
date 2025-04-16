@@ -1,6 +1,6 @@
 // Main function to load and display events
 function loadEvents() {
-    fetch('/events')
+    fetch('/events/api')
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);

@@ -5,24 +5,26 @@ import { authenticate } from '../middleware/auth';
 const router = express.Router();
 
 // Create a new event
-router.post('/create', authenticate, async (req, res) => {
+router.post('/create', async (req, res) => {
     try {
-        const { title, description, date } = req.body;
-        const event = new Event({ title, description, date });
+        const { title, description, date, time, location } = req.body;
+        const event = new Event({ title, description, date, time, location });
         await event.save();
         res.status(201).send('Event created successfully');
     } catch (err) {
+        console.error(err);
         res.status(500).send('Error creating event');
     }
 });
 
-// Get all events
-router.get('/', async (_req, res): Promise<void> => {
+
+// GET all events as JSON (used by frontend JS)
+router.get('/api', async (_req, res) => {
     try {
         const events = await Event.find();
-        res.render('pages/events', { events }); // Passing events to the EJS view
+        res.json(events);
     } catch (err) {
-        res.status(500).send('Error fetching events');
+        res.status(500).json({ message: 'Error fetching events' });
     }
 });
 

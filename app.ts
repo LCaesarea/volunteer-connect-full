@@ -25,9 +25,13 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(logger);
+app.use(express.json());
+
 
 // Static files
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'));
+
 
 // Routes
 app.use('/auth', authRoutes);
